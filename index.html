@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Firechat</title>
+</head>
+<body>
+
+    <!--Nav bar-->
+    <nav>
+        <div class="nav-wrapper amber darken-2" id ="nav-wrapper">
+            <a href="#" class="brand-logo" id="logo">Firechat</a>
+            <ul id ="nav-mobile" class="right hide-on-med-down">
+                <li class = "logged-in">
+                    <a href="contacts.html" id="contacts-link"><i class="material-icons">contacts</i></a>
+                </li>
+                <li>
+                    <a href="issues.html"> <i class="material-icons tiny">bug_report</i></a>
+                </li>
+                <li class = "logged-in">
+                    <a href="#" class="dropdown-trigger amber lighten-1 btn" data-target="accountDropdown" id="account-dropdown"><i class="material-icons">account_circle</i></a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" class="dropdown-trigger amber lighten-1 btn" data-target="loginDropdown" id="login-dropdown"><i class="material-icons">account_circle</i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Account dropdown-->
+    <ul id="accountDropdown" class="dropdown-content">
+        <li><a href="settings.html" class = "black-text"> <i class="small material-icons">settings</i> Settings</a></li>
+        <li><a href="#!" class = "btn-flat black-text" id="logout"><i class="small material-icons">input</i> Signout</a></li>
+    </ul>
+
+    <!--Login dropdown-->
+    <ul id="loginDropdown" class="dropdown-content">
+        <li><a href="#!" class = "black-text btn-flat modal-trigger" data-target="modal-login"> <i class="small material-icons">input</i> Login</a></li>
+        <li><a href="#!" class = "btn-flat black-text modal-trigger" data-target="modal-signup"><i class="small material-icons">input</i> Signup</a></li>
+    </ul>
+
+    <!--Logged out UI-->
+    <div class="container logged-out">
+        <h4 class="center-align glow" id ="account-warning">You need an account to further access this website</h1>
+        
+        <!--Sign in card-->
+        <div class="row">
+            <div class = "col s12 m6">
+                <div class="card" id ="sign-in-card">
+                    <div class="card-content">
+                        <span class="card-title">Already have an account?</span>
+                        <p>You're seeing this because you are logged out. Please sign back in!</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class="wave-effect waves-light btn yellow darken-2 modal-trigger" data-target="modal-login" id ="sign-in-button">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Sign up card-->
+        <div class="row">
+            <div class = "col s12 m6">
+                <div class="card" id="sign-up-card">
+                    <div class="card-content">
+                        <span class="card-title">Don't have an account?</span>
+                        <p>You should set up an account to chat with your friends!</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class="wave-effect waves-light btn yellow darken-2 modal-trigger" data-target="modal-signup" id="sign-up-button">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+        <h4>Sign up</h4><br />
+        <form id="signup-form">
+            <div class="input-field">
+                <input type="text" id="username" required/>
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field">
+                <input type="email" id="signup-email" required />
+                <label for="signup-email">Email address</label>
+                <span class="helper-text red-text" data-error="wrong" data-success="right" id="signup-email-helper-text"></span>
+            </div>
+            <div class="input-field">
+                <input type="password" id="signup-password" required />
+                <label for="signup-password">Choose password</label>
+                <span class="helper-text red-text" data-error="wrong" data-success="right" id="signup-password-helper-text"></span>
+            </div>
+            <button class="btn yellow darken-2 no-modal" id="sign-in-button-modal">Sign up</button>
+        </form>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+        <h4>Login</h4>
+        <form id="login-form">
+            <div class="input-field">
+                <input type="email" id="login-email" required />
+                <label for="login-email">Email address</label>
+                <span class="helper-text red-text" data-error="wrong" data-success="right" id="login-email-helper-text"></span>
+            </div>
+            <div class="input-field">
+                <input type="password" id="login-password" required />
+                <label for="login-password">Your password</label>
+                <span class="helper-text red-text" data-error="wrong" data-success="right" id="login-password-helper-text"></span>
+            </div>
+            <button class="btn yellow darken-2 no-modal" id="login-button">Login</button>
+        </form>
+        </div>
+    </div>
+
+    <!--Logged in UI-->
+    <div class="container logged-n">
+        <!--Quote Card-->
+        <div class="row">
+            <div class = "col s12 m20">
+                <div class="card" id="quote-card">
+                    <div class="card-content">
+                        <span class="card-title">Quote of the day</span>
+                        <h4 id="quote">"What makes a man turn neutral? Lust for gold? Power? Or where you just born with a heart full of neutrality?"</h4>
+                        <h6 id="quote-author">-Zapp Brannigan</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/auth.js"></script>
+</body>
+</html>
